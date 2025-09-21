@@ -1,14 +1,23 @@
-﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:CryptoPulse"
+             xmlns:converters="clr-namespace:CryptoPulse.Converters"
              x:Class="CryptoPulse.App">
+
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
-                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
-            </ResourceDictionary.MergedDictionaries>
+            <!-- Main theme color for the app -->
+            <Color x:Key="Primary">#2563eb</Color>
+
+            <!-- Global style for all buttons so they look consistent -->
+            <Style TargetType="Button">
+                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="Padding" Value="12,8" />
+            </Style>
+
+            <!-- Register my custom property converter globally
+                 so I can reuse it in XAML bindings -->
+            <converters:DynamicPropertyConverter x:Key="DynamicPropertyConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

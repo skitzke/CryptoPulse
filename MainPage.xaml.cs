@@ -1,23 +1,19 @@
-﻿namespace CryptoPulse;
+﻿using Microsoft.Maui.Controls;
+using CryptoPulse.ViewModels;
 
-public partial class MainPage : ContentPage
+namespace CryptoPulse
 {
-	int count = 0;
+    public partial class MainPage : ContentPage
+    {
+        // Page is bound to the MainViewModel so all UI can directly
+        // hook into properties and commands defined there.
+        public MainPage(MainViewModel vm)
+        {
+            InitializeComponent();
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
-
-	private void OnCounterClicked(object? sender, EventArgs e)
-	{
-		count++;
-
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
-
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+            // Set the data context of this page to the ViewModel
+            // so that XAML bindings work.
+            BindingContext = vm;
+        }
+    }
 }

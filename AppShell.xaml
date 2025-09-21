@@ -3,12 +3,11 @@
     x:Class="CryptoPulse.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:CryptoPulse"
-    Title="CryptoPulse">
+    xmlns:views="clr-namespace:CryptoPulse">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
-
+    <TabBar>
+        <ShellContent
+            Title="CryptoPulse"
+            ContentTemplate="{DataTemplate views:MainPage}" />
+    </TabBar>
 </Shell>
