@@ -58,6 +58,8 @@ C:\Users\Caner\Desktop\CryptoPulse\bin\Debug\net9.0-windows10.0.19041.0\win10-x6
 C:\Users\Caner\Desktop\CryptoPulse\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\appiconLogo.scale-125.png
 C:\Users\Caner\Desktop\CryptoPulse\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\appiconLogo.scale-100.png
 C:\Users\Caner\Desktop\CryptoPulse\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\appicon.ico
+C:\Users\Caner\Desktop\CryptoPulse\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\diagram.scale-100.png
+C:\Users\Caner\Desktop\CryptoPulse\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\app.scale-100.png
 C:\Users\Caner\Desktop\CryptoPulse\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\CoreMessagingXP.dll
 C:\Users\Caner\Desktop\CryptoPulse\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\dcompi.dll
 C:\Users\Caner\Desktop\CryptoPulse\bin\Debug\net9.0-windows10.0.19041.0\win10-x64\dwmcorei.dll
@@ -520,6 +522,8 @@ C:\Users\Caner\Desktop\CryptoPulse\obj\Debug\net9.0-windows10.0.19041.0\win10-x6
 C:\Users\Caner\Desktop\CryptoPulse\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-125.png
 C:\Users\Caner\Desktop\CryptoPulse\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\appiconLogo.scale-100.png
 C:\Users\Caner\Desktop\CryptoPulse\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\appicon.ico
+C:\Users\Caner\Desktop\CryptoPulse\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\diagram.scale-100.png
+C:\Users\Caner\Desktop\CryptoPulse\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\resizetizer\r\app.scale-100.png
 C:\Users\Caner\Desktop\CryptoPulse\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\mauiimage.stamp
 C:\Users\Caner\Desktop\CryptoPulse\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\mauiimage.outputs
 C:\Users\Caner\Desktop\CryptoPulse\obj\Debug\net9.0-windows10.0.19041.0\win10-x64\CryptoPulse.AssemblyInfoInputs.cache

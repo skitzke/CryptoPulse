@@ -17,7 +17,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CryptoPulse")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+8f22b0288a754ee6df281933d878bf2aab245b93")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+0343ff5e34cdeb9cdbc43a846ae4df70f3997813")]
 [assembly: System.Reflection.AssemblyProductAttribute("CryptoPulse")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CryptoPulse")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

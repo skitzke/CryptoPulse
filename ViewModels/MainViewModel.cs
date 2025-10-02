@@ -264,6 +264,32 @@ public class MainViewModel : INotifyPropertyChanged, IDisposable
             }
         });
 
+                // --- Live commands ---
+        StartLiveCommand = new Helpers.AsyncCommand(async _ =>
+        {
+            if (_cts.IsCancellationRequested)
+            {
+                _cts.Dispose();
+                _cts = new CancellationTokenSource();
+            }
+
+            if (_liveLoop is { IsCompleted: false }) return;
+
+            await _db.EnsureInitializedAsync();
+            await SetStatusAsync("Starting live updates (30s)...");
+            _liveLoop = LiveLoopAsync(_cts.Token);
+        });
+
+        StopLiveCommand = new Helpers.AsyncCommand(async _ =>
+        {
+            if (!_cts.IsCancellationRequested)
+            {
+                await SetStatusAsync("Stopping live updates...");
+                _cts.Cancel();
+            }
+        });
+
+
         // Paging commands
         PrevPageCommand = new Helpers.AsyncCommand(async _ =>
         {
@@ -303,6 +329,52 @@ public class MainViewModel : INotifyPropertyChanged, IDisposable
         OnPropertyChanged(nameof(TotalPages));
         OnPropertyChanged(nameof(IsLastPage));
     }
+
+
+        // Background live loop (fetches prices every 30s)
+    private async Task LiveLoopAsync(CancellationToken ct)
+    {
+        using var timer = new PeriodicTimer(TimeSpan.FromSeconds(30));
+        try
+        {
+            while (await timer.WaitForNextTickAsync(ct))
+            {
+                await SetStatusAsync("Live: fetching latest...");
+                var anyOk = false;
+
+                foreach (var id in _coins.Take(5)) // limit to a few coins for performance
+                {
+                    try
+                    {
+                        var price = await _api.GetSimplePriceAsync(id, "eur", ct);
+                        if (price > 0)
+                        {
+                            await _db.AppendPointAsync(id, DateTime.UtcNow, price);
+                            anyOk = true;
+                            await SetStatusAsync($"Live: {id} = {price} EUR @ {DateTime.Now:HH:mm:ss}");
+                        }
+                    }
+                    catch (OperationCanceledException) { throw; }
+                    catch (Exception ex)
+                    {
+                        await SetStatusAsync($"Live: error fetching {id}: {ex.Message}");
+                    }
+                }
+
+                RowCount = await _db.CountAsync();
+                await RefreshChartAsync();
+                await RefreshTopMoversAsync();
+
+                if (!anyOk)
+                    await SetStatusAsync("Live: last fetch failed.");
+            }
+        }
+        catch (OperationCanceledException)
+        {
+            await SetStatusAsync("Live stopped.");
+        }
+    }
+
 
     // Updates chart series with latest data
     private async Task RefreshChartAsync()
